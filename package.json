@@ -1,0 +1,24 @@
+{
+  "name": "url-shortener",
+  "version": "1.0.0",
+  "description": "a microservice providing shortened, redirecting URLs",
+  "main": "index.js",
+  "start": "node app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "node test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/porygonj/url-shortener.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/porygonj/url-shortener/issues"
+  },
+  "homepage": "https://github.com/porygonj/url-shortener#readme",
+  "dependencies": {
+    "express": "^4.14.0"
+  }
+}
