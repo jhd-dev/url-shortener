@@ -5,13 +5,14 @@ var validUrl = require("valid-url");
 
 var app = express();
 var port = process.env.PORT || 8080;
+var mongoPort = 27017;
 var appURL = 'https://porygonj-url-shortener.herokuapp.com/';
 var notFoundPage = '';
 
 app.use('/', express.static(path.join(__dirname, 'public')));
 
 app.get('/new/:url', function(req, res){
-    mongo.connect('mongodb:localhost:' + port + '/urls', function(err, db){
+    mongo.connect('mongodb:localhost:' + mongoPort + '/urls', function(err, db){
         if (err) throw err;
         var url = req.params.url;
         var urls = db.collection('urls');
