@@ -1,15 +1,12 @@
 var express = require("express");
 var mongo = require("mongodb").MongoClient;
 var path = require("path");
+var validUrl = require("valid-url");
 
 var app = express();
 var port = process.env.PORT || 8080;
 var appURL = 'https://porygonj-url-shortener.herokuapp.com/';
 var notFoundPage = '';
-
-function isValidURL (url) {
-    return true;
-}
 
 app.use('/', express.static(path.join(__dirname, 'public')));
 
@@ -20,8 +17,7 @@ app.get('/new/:url', function(req, res){
         var urls = db.collection('urls');
         urls.count({}, function(err, count){
             if (err) throw err;
-            var toInsert;
-            if (isValidURL(url)){
+            if (validUrl.isWebUri(url)){
                 urls.insert({
                     "_id": +count,
                     "original_url": url,
