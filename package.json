@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/porygonj/url-shortener#readme",
   "dependencies": {
-    "express": "^4.14.0"
+    "express": "^4.14.0",
+    "mongodb": "^2.2.16"
   }
 }
