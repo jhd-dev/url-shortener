@@ -2,7 +2,7 @@ var mainUrl = window.location || 'https://porygonj-url-shortener.herokuapp.com/'
 
 function getJSON(url, callback = function(){}){
     var xhr = new XMLHttpRequest();
-    xhr.addEventListener("load", function(){
+    xhr.addEventListener("load", function(){console.log(this.responseText);console.log(document.getElementById("url-input").value);
         callback(JSON.parse(this.responseText));
     });
     xhr.open('GET', url);

@@ -3,6 +3,10 @@ body {
     background-color: #eee;
 }
 
+#wrapper {
+    margin-left: 16px;
+}
+
 .input-box {
     margin-bottom: 32px;
 }
