@@ -2,11 +2,11 @@ var express = require("express");
 var mongo = require("mongodb").MongoClient;
 var path = require("path");
 var validUrl = require("valid-url");
-//test url:  https://url-shortener-porygonj.c9users.io/new/http%3A%2F%2Fgoogle.com
+
 var app = express();
 var port = process.env.PORT || 8080;
 var mongoUrl = process.env.MONGOLAB_URI || 'mongodb://localhost:27017/urls';
-var appURL = 'https://url-shortener-porygonj.c9users.io/';//'https://porygonj-url-shortener.herokuapp.com/';
+var appURL = 'https://porygonj-url-shortener.herokuapp.com/';
 var notFoundPage = '';
 
 app.use('/', express.static(path.join(__dirname, 'public')));
