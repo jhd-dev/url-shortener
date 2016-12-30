@@ -11,6 +11,10 @@ body {
     margin-bottom: 32px;
 }
 
+.error {
+    color: #e11;
+}
+
 .use-api {
     color: #333;
 }
