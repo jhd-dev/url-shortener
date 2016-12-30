@@ -28,7 +28,7 @@ app.get('/new/:url', function(req, res){
                     res.writeHead(200, {
                         "Content-Type": "application/json"
                     });
-                    res.json(JSON.stringify({
+                    res.end(JSON.stringify({
                         "original_url": url,
                         "new_url": appURL + count
                     }));
