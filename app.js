@@ -52,7 +52,10 @@ app.get('/:id', function(req, res){
         }).toArray(function(err, docs){
             if (err) throw err;
             if (!docs.length){
-                res.redirect(notFoundPage);
+                res.writeHead({
+                    "Content-Type": "text/html" 
+                });
+                res.end("<h1>Error: not found</h1>");
             } else {
                 res.redirect(docs[0].new_url);
             }
