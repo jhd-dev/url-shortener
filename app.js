@@ -2,11 +2,11 @@ var express = require("express");
 var mongo = require("mongodb").MongoClient;
 var path = require("path");
 var validUrl = require("valid-url");
-
+//test url:  https://url-shortener-porygonj.c9users.io/new/http%3A%2F%2Fgoogle.com
 var app = express();
 var port = process.env.PORT || 8080;
 var mongoUrl = process.env.MONGOLAB_URI || 'mongodb://localhost:27017/urls';
-var appURL = 'https://porygonj-url-shortener.herokuapp.com/';
+var appURL = 'https://url-shortener-porygonj.c9users.io/';//'https://porygonj-url-shortener.herokuapp.com/';
 var notFoundPage = '';
 
 app.use('/', express.static(path.join(__dirname, 'public')));
@@ -45,19 +45,19 @@ app.get('/new/:url', function(req, res){
 });
 
 app.get('/:id', function(req, res){
-    mongo.connect('mongodb:localhost:' + port + '/urls', function(err, db){
+    mongo.connect(mongoUrl, function(err, db){
         if (err) throw err;
-        db.collection.find({
+        db.collection('urls').find({
             "_id": +req.params.id
-        }).toArray(function(err, docs){
+        }).limit(1).toArray(function(err, docs){
             if (err) throw err;
             if (!docs.length){
-                res.writeHead({
+                res.writeHead(200, {
                     "Content-Type": "text/html" 
                 });
                 res.end("<h1>Error: not found</h1>");
-            } else {
-                res.redirect(docs[0].new_url);
+            } else {console.log(docs[0].original_url);
+                res.redirect(docs[0].original_url);
             }
             db.close();
         });
