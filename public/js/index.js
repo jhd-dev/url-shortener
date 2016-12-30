@@ -12,10 +12,9 @@ function getJSON(url, callback = function(){}){
 document.addEventListener("DOMContentLoaded", function(){
     document.getElementById("url-submit").onclick = function(){
         getJSON(mainUrl + 'new/' + encodeURIComponent(document.getElementById("url-input").value), function(data){
-             var resultBox = document.createElement("div");
-             resultBox.classList.add("url-result");
-             resultBox.innerHTML = data.new_url;
-             document.getElementById("input-box").appendElement(resultBox);
+             var resultBox = document.getElementById("url-result");
+             resultBox.classList.toggle("error", !!data.error);
+             resultBox.innerHTML = data.error || data.new_url;
         });
     };
 });
