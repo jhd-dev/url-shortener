@@ -5,9 +5,8 @@ var validUrl = require("valid-url");
 
 var app = express();
 var port = process.env.PORT || 8080;
-var mongoUrl = process.env.MONGOLAB_URI || 'mongodb://localhost:27017/urls';
+var mongoUrl = process.env.MONGOLAB_URI || 'mongodb://localhost:27017/urls';console.log(mongoUrl);
 var appURL = 'https://porygonj-url-shortener.herokuapp.com/';
-var notFoundPage = '';
 
 app.use('/', express.static(path.join(__dirname, 'public')));
 
