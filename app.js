@@ -11,10 +11,6 @@ var appURL = 'https://porygonj-url-shortener.herokuapp.com/';
 app.use('/', express.static(path.join(__dirname, 'public')));
 
 app.get('/new/:url', function(req, res){
-    res.end(JSON.stringify({
-        "mongoUrl": mongoUrl
-    }));
-    return;
     mongo.connect(mongoUrl, function(err, db){
         if (err) throw err;
         var url = req.params.url;
