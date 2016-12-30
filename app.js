@@ -17,6 +17,9 @@ app.get('/new/:url', function(req, res){
         var urls = db.collection('urls');
         urls.count({}, function(err, count){
             if (err) throw err;
+            res.writeHead(200, {
+                "Content-Type": "application/json"
+            });
             if (validUrl.isWebUri(url)){
                 urls.insert({
                     "_id": +count,
@@ -25,9 +28,6 @@ app.get('/new/:url', function(req, res){
                 }, function(err, data){
                     if (err) throw err;
                     db.close();
-                    res.writeHead(200, {
-                        "Content-Type": "application/json"
-                    });
                     res.end(JSON.stringify({
                         "original_url": url,
                         "new_url": appURL + count
