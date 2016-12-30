@@ -2,3 +2,25 @@ body {
     font-family: sans-serif;
     background-color: #eee;
 }
+
+.input-box {
+    margin-bottom: 32px;
+}
+
+.use-api {
+    color: #333;
+}
+
+.head {
+    margin: 12px 0 6px 0;
+}
+
+.example pre {
+    display: inline-block;
+    padding: 0.5em;
+    background-color: #ccc;
+}
+
+.credit {
+    margin: 24px 0 0 0;
+}
